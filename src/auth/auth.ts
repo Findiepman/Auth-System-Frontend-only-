@@ -1,18 +1,36 @@
 import { loadFromStorage, saveToStorage, removeFromStorage } from "../storage/storage.js";
 import { User, Session } from "./types.js";
-import { state } from "../state";
+import { state } from "../state.js";
 
 export function registerUser(username: string, password: string) {
-    const existingUser = state.users.find(user => user.username === username.toLowerCase());
-    if (!existingUser && username && password) {
-        const newUser = {
-            username: username.toLowerCase(),
-            password: password,
-            id: Date.now().toString()
-        }
-        state.users.push(newUser)
-        saveToStorage('users', state.users)
+    username = username.trim()
+    password = password.trim()
+    if (!username || !password) {
+        return "One or more fields is empty!"
     }
+
+    const existingUser = state.users.find(user => user.username === username.toLowerCase());
+
+    if (existingUser) {
+        return "A user with this login information already exists!"
+    }
+
+
+    const newUser = {
+        username: username.toLowerCase(),
+        password: password,
+        id: Date.now().toString()
+    }
+    state.users.push(newUser)
+
+    saveToStorage('users', state.users)
+    state.session = {userId: newUser.id, createdAt: Date.now()}
+    saveToStorage('session', state.session)
+    return "Register succesful"
+
+
+
+
 }
 
 export function loginUser(username: string, password: string) {
@@ -25,7 +43,7 @@ export function loginUser(username: string, password: string) {
             return 'invalid password'
         }
         else {
-            state.session = {userId: existingUser.id, createdAt: Date.now()}
+            state.session = { userId: existingUser.id, createdAt: Date.now() }
             saveToStorage('session', state.session)
             return 'Succesfully logged in'
         }
@@ -35,5 +53,5 @@ export function loginUser(username: string, password: string) {
 function logoutUser() {
     state.session = null
     removeFromStorage('session')
-    window.location.href="/login.html"
+    window.location.href = "/login.html"
 }

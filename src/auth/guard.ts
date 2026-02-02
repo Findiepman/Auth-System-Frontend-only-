@@ -1,5 +1,5 @@
-import { loadFromStorage } from "../storage/storage";
-import { state } from "../state";
+import { loadFromStorage } from "../storage/storage.js";
+import { state } from "../state.js";
 
 export function requireAuth() {
     const session: any = loadFromStorage('session')

@@ -1,3 +1,5 @@
+import { loadFromStorage } from "./storage/storage.js";
+
 // src/state.ts
 export interface User {
   id: string;
@@ -10,10 +12,10 @@ export interface Session {
   createdAt: number;
 }
 
-export const state = {
-  users: [] as User[],      // runtime array van users
-  session: null as Session | null // huidige sessie
-};
+export const state: { users: User[], session: { userId: string, createdAt: number } | null } = {
+    users: loadFromStorage<User[]>("users") || [],
+    session: loadFromStorage("session") || null
+}
 
 // Helper (conceptueel) om state te syncen met localStorage
 export const persistUsers = () => { /* save state.users naar localStorage */ };

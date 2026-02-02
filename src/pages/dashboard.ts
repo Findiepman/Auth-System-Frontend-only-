@@ -1,2 +1,2 @@
-import { requireAuth } from "../auth/guard";
+import { requireAuth } from "../auth/guard.js";
 requireAuth();
