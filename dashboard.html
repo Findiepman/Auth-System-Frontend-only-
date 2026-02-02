@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="User dashboard">
+  <title>Dashboard - AuthSystem</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <div class="header-content">
+      <a href="dashboard.html" class="logo">
+        <div class="logo-icon">A</div>
+        <span>AuthSystem</span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="settings.html">Settings</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="dashboard-container">
+      <div class="welcome-card">
+        <h1 class="welcome-title">Welcome, <span id="username-display">[username]</span>!</h1>
+        <p class="welcome-subtitle">Here's what's happening with your account today</p>
+        <button type="button" id="logout-btn" class="btn btn-secondary">
+          Logout
+        </button>
+      </div>
+
+      <div class="content-grid">
+        <article class="content-card">
+          <h3>Account Status</h3>
+          <p>Your account is active and all systems are running smoothly. Last login: Today</p>
+        </article>
+
+        <article class="content-card">
+          <h3>Quick Stats</h3>
+          <p>You have 0 notifications and 0 pending actions. Everything is up to date.</p>
+        </article>
+
+        <article class="content-card">
+          <h3>Recent Activity</h3>
+          <p>No recent activity to display. Start exploring to see your activity here.</p>
+        </article>
+      </div>
+
+      <div class="content-grid">
+        <article class="content-card">
+          <h3>Getting Started</h3>
+          <p>Welcome to your dashboard! Customize your experience by visiting the settings page.</p>
+        </article>
+
+        <article class="content-card">
+          <h3>Security</h3>
+          <p>Your account is secured with modern authentication protocols. Keep your password safe.</p>
+        </article>
+
+        <article class="content-card">
+          <h3>Support</h3>
+          <p>Need help? Our support team is available 24/7 to assist you with any questions.</p>
+        </article>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
