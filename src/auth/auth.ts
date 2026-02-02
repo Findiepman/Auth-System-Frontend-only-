@@ -1,5 +1,5 @@
 import { loadFromStorage, saveToStorage, removeFromStorage } from "../storage/storage.js";
-import { User, Session } from "./types.js";
+import { Session } from "./types.js";
 import { state } from "../state.js";
 
 export function registerUser(username: string, password: string) {
@@ -12,7 +12,7 @@ export function registerUser(username: string, password: string) {
     const existingUser = state.users.find(user => user.username === username.toLowerCase());
 
     if (existingUser) {
-        return "A user with this login information already exists!"
+        return "This username is already taken!"
     }
 
 
