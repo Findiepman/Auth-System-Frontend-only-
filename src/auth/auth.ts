@@ -1,4 +1,4 @@
-import { loadFromStorage, saveToStorage, removeFromStorage } from "../storage/storage.js";
+import { saveToStorage, removeFromStorage } from "../storage/storage.js";
 import { Session } from "./types.js";
 import { state } from "../state.js";
 
@@ -54,4 +54,17 @@ export function logoutUser() {
     state.session = null
     removeFromStorage('session')
     window.location.href = "/login.html"
+}
+
+export function sessionCheck(session: Session | null) {
+    if (!session) {
+        return false
+    }
+    const hour = 60 * 60 * 1000
+    const isExpired = Date.now() - session.createdAt > hour
+
+    if (isExpired) {
+        return false
+    }
+    return true
 }
