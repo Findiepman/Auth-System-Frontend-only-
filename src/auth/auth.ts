@@ -1,8 +1,8 @@
-import { loadFromStorage, saveToStorage, removeFromStorage } from "../storage/storage";
-import { User, Session } from "./types";
+import { loadFromStorage, saveToStorage, removeFromStorage } from "../storage/storage.js";
+import { User, Session } from "./types.js";
 import { state } from "../state";
 
-function registerUser(username: string, password: string) {
+export function registerUser(username: string, password: string) {
     const existingUser = state.users.find(user => user.username === username.toLowerCase());
     if (!existingUser && username && password) {
         const newUser = {
@@ -15,7 +15,7 @@ function registerUser(username: string, password: string) {
     }
 }
 
-function loginUser(username: string, password: string) {
+export function loginUser(username: string, password: string) {
     if (username.trim() !== "" && password.trim() !== "") {
         const existingUser = state.users.find(user => user.username === username.toLowerCase())
         if (!existingUser) {
@@ -31,4 +31,9 @@ function loginUser(username: string, password: string) {
         }
     }
     return 'empty fields'
+}
+function logoutUser() {
+    state.session = null
+    removeFromStorage('session')
+    window.location.href="/login.html"
 }
