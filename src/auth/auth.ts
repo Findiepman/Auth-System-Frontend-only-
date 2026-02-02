@@ -50,7 +50,7 @@ export function loginUser(username: string, password: string) {
     }
     return 'empty fields'
 }
-function logoutUser() {
+export function logoutUser() {
     state.session = null
     removeFromStorage('session')
     window.location.href = "/login.html"
