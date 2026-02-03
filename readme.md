@@ -37,6 +37,7 @@ This project shows understanding of:
 ## 📁 Project Structure
 
 
+.
 ├─ .gitignore
 ├─ .gitattributes
 ├─ dashboard.html
@@ -82,7 +83,7 @@ This project shows understanding of:
 interface Session {
   userId: string
   createdAt: number
-}
+}```
 ---
 
 ## 🛡️ Route Protection
