@@ -49,19 +49,18 @@ This project shows understanding of:
 ├─ tsconfig.json
 ├─ README.md
 └─ src/
-├─ auth/
-│ ├─ auth.ts // register, login, logout logic
-│ ├─ guard.ts // requireAuth route guard
-│ ├─ activity.ts // session keep-alive on user activity
-│ └─ types.ts // auth-related TypeScript types
-│
-├─ pages/
-│ ├─ login.ts // login page logic
-│ ├─ register.ts // register page logic
-│ └─ dashboard.ts // dashboard logic
-│
-└─ storage/
-└─ storage.ts // localStorage helper functions
+ ├─ auth/
+ │  ├─ auth.ts // register, login, logout logic
+ │  ├─ guard.ts // requireAuth route guard
+ │  ├─ activity.ts // session keep-alive on user activity
+ │  └─ types.ts // auth-related TypeScript types
+ ├─ pages/
+ │  ├─ login.ts // login page logic
+ │  ├─ register.ts // register page logic
+ │  └─ dashboard.ts // dashboard logic
+ ├─ storage/
+ │  └─ storage.ts // localStorage helper functions
+ └─ state.ts // state logic
 ```
 
 ---
