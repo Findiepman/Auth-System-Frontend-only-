@@ -36,21 +36,31 @@ This project shows understanding of:
 
 ## 📁 Project Structure
 
-src/
+
+├─ .gitignore
+├─ .gitattributes
+├─ dashboard.html
+├─ login.html
+├─ register.html
+├─ styles.css
+├─ package.json
+├─ package-lock.json
+├─ tsconfig.json
+├─ README.md
+└─ src/
 ├─ auth/
-│ ├─ auth.ts // register, login, logout
-│ ├─ guard.ts // requireAuth
-│ ├─ activity.ts // session keep-alive
-│ └─ types.ts
+│ ├─ auth.ts // register, login, logout logic
+│ ├─ guard.ts // requireAuth route guard
+│ ├─ activity.ts // session keep-alive on user activity
+│ └─ types.ts // auth-related TypeScript types
+│
 ├─ pages/
-│ ├─ login.ts
-│ ├─ register.ts
-│ └─ dashboard.ts
-├─ state/
-│ └─ state.ts // global app state
-├─ storage/
-│ └─ storage.ts // localStorage helpers
-└─ main.ts
+│ ├─ login.ts // login page logic
+│ ├─ register.ts // register page logic
+│ └─ dashboard.ts // dashboard logic
+│
+└─ storage/
+└─ storage.ts // localStorage helper functions
 
 
 ---
@@ -73,3 +83,53 @@ interface Session {
   userId: string
   createdAt: number
 }
+---
+
+## 🛡️ Route Protection
+
+Protected pages (such as `dashboard.html`) use a route guard:
+
+- If no valid session exists → redirect to `login.html`
+- Auth checks run on page load
+- Session expiry is continuously monitored
+
+---
+
+## 🚧 Important Disclaimer
+
+⚠️ This project does **not** implement real security.
+
+- Passwords are stored in plain text
+- No encryption or hashing
+- No backend or database
+- No OAuth or JWT
+
+This is intentional and done for learning and portfolio demonstration purposes.
+
+---
+
+## 🏗️ How This Would Work in Production
+
+In a production environment, this system would be replaced with:
+
+- A backend API
+- Secure password hashing
+- JWT or session-based authentication
+- HTTP-only cookies
+- Server-side authorization
+
+---
+
+## 📌 Tech Stack
+
+- TypeScript
+- HTML & CSS
+- Browser APIs (`localStorage`)
+- Vanilla JavaScript (no frameworks)
+- Frontend only
+
+---
+
+## 📄 License
+
+This project is intended for educational and portfolio use.
