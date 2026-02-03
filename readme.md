@@ -36,7 +36,7 @@ This project shows understanding of:
 
 ## 📁 Project Structure
 
-src/
+- src/
 ├─ auth/
 │ ├─ auth.ts // register, login, logout
 │ ├─ guard.ts // requireAuth
