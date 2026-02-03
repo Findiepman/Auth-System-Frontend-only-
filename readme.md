@@ -36,7 +36,7 @@ This project shows understanding of:
 
 ## 📁 Project Structure
 
-
+```
 .
 ├─ .gitignore
 ├─ .gitattributes
@@ -62,7 +62,7 @@ This project shows understanding of:
 │
 └─ storage/
 └─ storage.ts // localStorage helper functions
-
+```
 
 ---
 
