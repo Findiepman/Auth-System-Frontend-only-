@@ -24,7 +24,7 @@ export function registerUser(username: string, password: string) {
     state.users.push(newUser)
 
     saveToStorage('users', state.users)
-    state.session = {userId: newUser.id, createdAt: Date.now()}
+    state.session = { userId: newUser.id, createdAt: Date.now() }
     saveToStorage('session', state.session)
     return "Register succesful"
 
